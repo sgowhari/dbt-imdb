@@ -5,16 +5,19 @@ SELECT
     originalTitle as original_title,
     isAdult as adult_flg,
     CASE 
-        WHEN startYear = '\\N' THEN NULL
-        ELSE startYear 
+        WHEN startYear = '\\N' 
+            THEN NULL
+    ELSE startYear 
     END as year_begin, 
     CASE 
-        WHEN endYear = '\\N' THEN NULL
-        ELSE endYear 
+        WHEN endYear = '\\N' 
+        THEN NULL
+    ELSE endYear 
     END as year_end, 
     runtimeMinutes as runtime_mins,
     CASE 
-        WHEN genres = '\\N' THEN NULL
-        ELSE genres 
+        WHEN genres = '\\N' 
+        THEN NULL
+    ELSE genres 
     END as genres_array
-FROM {{ source('imdb', 'title_basics') }}
+FROM {{ source('imdb', 'title_basics') }} as title_basics
