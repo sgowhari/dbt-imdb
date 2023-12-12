@@ -19,3 +19,5 @@ from base_imdb__crew
 - - - - stg_imdb__episodes.sql
 - - - - stg_imdb__crew_directors.sql
 - - - - stg_imdb__crew_writers.sql
+--,
+   -- {{dbt_utils.generate_surrogate_key('title_id','director_id')}} as title_director_id
