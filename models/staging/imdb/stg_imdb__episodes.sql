@@ -1,3 +1,6 @@
+WITH episode_titles AS
+(
+
 SELECT 
     tconst as episode_title_id,
     parentTconst as series_title_id,
@@ -12,3 +15,7 @@ SELECT
     ELSE episodeNumber END as episode_nbr
 
 FROM {{ source('imdb', 'title_episode') }} as title_episode
+)
+
+SELECT *
+FROM episode_titles

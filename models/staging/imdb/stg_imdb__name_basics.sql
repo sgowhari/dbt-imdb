@@ -1,5 +1,6 @@
+WITH person_basics AS
+(
 SELECT 
-
     nconst as person_id,
     primaryName as person_nm,
     CASE 
@@ -20,3 +21,7 @@ SELECT
     END as titles_known_for_array
     
 FROM {{ source('imdb', 'name_basics') }}
+)
+
+SELECT *
+FROM person_basics

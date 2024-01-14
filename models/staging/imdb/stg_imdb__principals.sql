@@ -1,3 +1,5 @@
+WITH title_principals AS
+(
 SELECT 
     tconst as title_id,
     ordering as order_of_appearance,
@@ -15,3 +17,7 @@ SELECT
     END as characters
 
 FROM {{ source('imdb', 'title_principals') }} as title_principals
+)
+
+SELECT *
+FROM title_principals

@@ -1,3 +1,6 @@
+WITH title_basics AS 
+(
+    
 SELECT 
     tconst as title_id,
     titleType as title_type,
@@ -21,3 +24,7 @@ SELECT
     ELSE genres 
     END as genres_array
 FROM {{ source('imdb', 'title_basics') }} as title_basics
+)
+
+SELECT *
+FROM title_basics
