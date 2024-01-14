@@ -1,4 +1,10 @@
 
+WITH 
+    {{dbt_utils.generate_surrogate_key(['title_id','director_id'])}} as title_director_id, 
+    title_id,
+    director_id
+
+
 inner join other_table
     on source = other_table
 
