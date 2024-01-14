@@ -1,5 +1,5 @@
-default_output:
-  target: imdb-target # this is the default target
+default_output: #profile name
+  target: imdb-target # target name
   outputs:
     imdb-target:
       type: bigquery
