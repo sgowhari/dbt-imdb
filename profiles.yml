@@ -1,0 +1,7 @@
+default_output: #profile name
+  target: imdb-target # target name
+  outputs:
+    imdb-target:
+      type: bigquery
+      schema: imdb_model_output
+      threads: 2

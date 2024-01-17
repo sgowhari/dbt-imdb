@@ -1,0 +1,29 @@
+
+WITH 
+    {{dbt_utils.generate_surrogate_key(['title_id','director_id'])}} as title_director_id, 
+    title_id,
+    director_id
+
+
+inner join other_table
+    on source = other_table
+
+SELECT
+    {{ dbt_utils.generate_surrogate_key(['title_id', 'director_id']) }} as title_director_id
+    md5(ifnull(title_id, 'X') || '-' || director_id) => "ppoizn823h1bn0971"
+  , title_id
+  , director_id
+
+from base_imdb__crew
+, lateral(flatten => )
+
+- models
+- - staging
+- - - imdb
+- - - - base
+- - - - - base_imdb__crew.sql
+- - - - stg_imdb__episodes.sql
+- - - - stg_imdb__crew_directors.sql
+- - - - stg_imdb__crew_writers.sql
+--,
+   -- {{dbt_utils.generate_surrogate_key('title_id','director_id')}} as title_director_id

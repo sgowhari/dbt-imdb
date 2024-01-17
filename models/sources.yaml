@@ -1,0 +1,37 @@
+version: 2
+# if you don't specify schema, it will use the name as the name for schema.
+sources:
+  - name: imdb #source name that you will be referring to in models
+    description: sources in BigQuery
+    database: imdb-project-403816 #db name
+    schema: Source #actual schema name
+    tables:
+      - name: title_ratings #table name
+        description: ratings of the movies
+        columns:
+          - name: _tconst
+            description: primary key identifier for movie titles
+            tests:
+                - unique
+                - not_null
+                
+      - name: title_principals
+        description: principal actors for each movie
+
+      - name: title_crew
+        description: crew members of each movie
+        columns:
+          - name: tconst
+            description: primary key identifier for movie titles
+            tests:
+                - unique
+                - not_null
+
+      - name: title_episode
+        description: episode information
+        
+      - name: name_basics
+
+      - name: title_basics
+
+      - name: title_akas
