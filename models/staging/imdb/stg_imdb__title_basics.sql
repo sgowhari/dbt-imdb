@@ -28,3 +28,5 @@ FROM {{ source('imdb', 'title_basics') }} as title_basics
 
 SELECT *
 FROM title_basics
+WHERE 1=1
+AND primary_title = 'Modern Family'
